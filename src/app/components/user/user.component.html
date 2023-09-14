@@ -1,0 +1,55 @@
+<div class="w-72 py-4 px-8 border rounded-lg shadow-md shadow-black-500/50 flex flex-col m-1 mb-2">
+  <img [src]="user.picture.large" [alt]="user.name.last" width="200px" height="200px">
+  <div class="w-52 flex flex-col">
+    <h1 class="text-2xl truncate font-bold">
+      {{user.name.last}} {{user.name.first}} 
+    </h1>
+    <h2> 
+      <span class="font-semibold">Gender: </span>
+      {{user.gender | titlecase}}
+    </h2>
+    <p class="truncate"> 
+      <span class="font-semibold">City: </span>
+      {{user.location.city}}
+    </p>
+    <p class="truncate"> 
+      <span class="font-semibold">Country: </span>
+      {{user.location.country}}
+    </p>
+    <p class="truncate"> 
+      <span class="font-semibold">Email: </span>
+      {{user.email}}
+    </p>
+  </div>
+
+  <div class="flex flex-col">
+    <img class="self-center" [src]="getWeatherIcon()" alt="icon" width="50px" height="50px"/>
+    <div class="">
+      <p>
+        <span class="font-semibold">
+          Current temp:
+        </span>
+        {{getCurrentTemp()}}
+      </p>
+      <p>
+        <span class="font-semibold">
+          Lowest temp:
+        </span>
+        {{getLowestTemp()}}
+      </p>
+      <p>
+        <span class="font-semibold">
+          Highest temp:
+        </span>
+        {{getHighestTemp()}}
+      </p>
+    </div>
+  </div>
+  <button 
+    *ngIf="!isFavorite"
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-4 hover:scale-110 ease-in-out transition" 
+    (click)="setToLocalStorage()"
+  >
+    Add to localStorage
+  </button>
+</div>

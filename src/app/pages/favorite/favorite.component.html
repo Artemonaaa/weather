@@ -1,0 +1,7 @@
+<div class="max-w-4xl container mx-auto pt-5 flex flex-wrap justify-center">
+  <app-user
+    *ngFor="let user of usersFromStore"
+    [user]="user"
+    [isFavorite]="true"
+  ></app-user>
+</div>
